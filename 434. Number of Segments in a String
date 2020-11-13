@@ -1,0 +1,12 @@
+class Solution {
+public:
+    int countSegments(string s) {
+      stringstream str(s);
+      int i =0;
+      string result;
+      while(str>>result) {
+          i++;
+          }
+        return i;
+    }
+};
