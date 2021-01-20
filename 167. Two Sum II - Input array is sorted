@@ -1,0 +1,19 @@
+class Solution {
+public:
+    vector<int> twoSum(vector<int>& numbers, int target) {
+        std::unordered_map<int, int>m_map;
+   std::vector<int> result;
+        
+        for(int i=0; i< numbers.size(); i++){
+          auto search = m_map.find(target - numbers[i]);
+          if(search != m_map.end()){
+              result.push_back((search->second) +1);
+              result.push_back(i+1);
+          }
+          m_map.insert({numbers[i], i});
+
+        }
+
+        return result;
+    }
+};
