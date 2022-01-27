@@ -1,8 +1,16 @@
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
-        vector<int>::iterator lower; 
-         lower = lower_bound (nums.begin(), nums.end(), target); 
-        return (lower-nums.begin());
+        int left = 0;
+        int right = nums.size()-1;
+        
+        while(left <= right) {
+            int mid = (left+right)/2;
+            
+            if(nums[mid] >= target) right = mid -1;
+            else left = mid +1;
+        }
+        
+        return left;
     }
 };
