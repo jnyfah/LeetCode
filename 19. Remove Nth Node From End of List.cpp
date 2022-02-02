@@ -11,27 +11,27 @@
 class Solution {
 public:
     ListNode* removeNthFromEnd(ListNode* head, int n) {
-    ListNode* headref =head;
-    int count = 0;
-        while(headref){
-           headref=headref->next;
-            count++;
+        ListNode* fast = head;
+        ListNode* slow = head;
+        
+        
+        while(n != 0) {
+            fast = fast->next;
+            n--;
         }
         
-        if (n == count) // check if need to remove the first node
-            return head->next;
+        if(fast == nullptr) {
+            return head->next; 
+        }
         
-        headref =head;count -=n;
-        count --;
-        while (count--) // get p the node before the n-th from the end
-            headref = headref->next;
+        while(fast->next) {
+            fast = fast->next;
+            slow = slow->next;
+        }
         
-        
-        headref->next=headref->next->next;
-        
-        
-       
-        
+        slow->next = slow->next->next;
         return head;
     }
 };
+
+
