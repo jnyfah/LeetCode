@@ -11,10 +11,8 @@ class Solution {
             result.push_back(j);
           }
         }
-
       }
 
       return result;
-
     }
 };
